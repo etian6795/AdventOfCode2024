@@ -1,5 +1,4 @@
 import java.io.*;
-import java.lang.*;
 import java.util.ArrayList;
 
 public class Day2P2 {
@@ -15,7 +14,7 @@ public class Day2P2 {
             String[] arr = line.split(" ");
             int n = arr.length;
             ArrayList<Integer> qwe = new ArrayList<>();
-            for(int i = 0; i < n; i++) qwe.add(Integer.parseInt(arr[i]));
+            for(int i = 0; i < n; i++) qwe.add(Integer.valueOf(arr[i]));
             boolean inc = qwe.get(1) > qwe.get(0);
             boolean safe = true;
             for(int i = 1; i < n; i++) {
