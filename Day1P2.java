@@ -1,5 +1,4 @@
 import java.io.*;
-import java.lang.*;
 
 public class Day1P2 {
     public static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
