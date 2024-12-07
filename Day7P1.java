@@ -1,18 +1,19 @@
 import java.io.*;
 
-public class Day7P1 {
+public class Day7P1 implements AOCInterface {
     public static BufferedReader br;
     public static PrintWriter out = new PrintWriter(System.out);
+    public static String file = "Day7Input.txt";
 
     public static void main(String[] args) throws IOException {
-        br = new BufferedReader(new FileReader("Day7Input.txt"));
+        br = new BufferedReader(new FileReader(file));
 
         String line;
         long ans = 0;
         while((line = br.readLine()) != null) {
-            String[] arr = line.split(" ");
-            long res = Long.parseLong(arr[0].substring(0, arr[0].length()-1));
-            if(can(res, arr, 2, Long.parseLong(arr[1]))) {
+            long[] arr = AOCInterface.readLineAsLongs(line);
+            long res = arr[0];
+            if(can(res, arr, 2, arr[1])) {
                 ans += res;
             }
         }
@@ -21,10 +22,12 @@ public class Day7P1 {
         out.close();
     }
 
-    public static boolean can(long res, String[] arr, int idx, long curr) {
+    public static boolean can(long res, long[] arr, int idx, long curr) {
         if(idx == arr.length) {
             return curr == res;
         }
-        return can(res, arr, idx+1, curr + Long.parseLong(arr[idx])) || can(res, arr, idx+1, curr * Long.parseLong(arr[idx]));
+        long pow = 1;
+        while(arr[idx]/pow > 0) pow *= 10;
+        return can(res, arr, idx+1, curr + arr[idx]) || can(res, arr, idx+1, curr * arr[idx]);
     }
 }
