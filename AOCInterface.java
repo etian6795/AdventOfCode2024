@@ -39,4 +39,8 @@ public interface AOCInterface {
         }
         return res;
     }
+
+    public static String[] readLineSplitBySpaces(String line) {
+        return line.split("\\s+");
+    }
 }
