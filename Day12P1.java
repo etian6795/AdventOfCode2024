@@ -1,5 +1,4 @@
 import java.io.*;
-import java.util.*;
 
 public class Day12P1 implements AOCInterface {
     public static BufferedReader br;
@@ -22,7 +21,6 @@ public class Day12P1 implements AOCInterface {
                     seen[i][j] = true;
                     arr[0]++;
                     dfs(i, j, seen, m, n, arr, grid, grid[i][j]);
-                    out.println(Arrays.toString(arr));
                     ans += arr[0] * arr[1];
                 }
             }
