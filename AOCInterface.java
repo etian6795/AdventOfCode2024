@@ -40,6 +40,16 @@ public interface AOCInterface {
         return line.split("\\s+");
     }
 
+    public static double[] sys2eq2varSolver(double a, double b, double c, double d, double e, double f) {
+        double det = (a*d - b*c);
+        if(det == 0) {
+            return null;
+        }
+        double x = ((d) * (e) - (b) * (f)) / det;
+        double y = ((a) * (f) - (c) * (e)) / det;
+        return new double[]{x, y};
+    }
+
     public static class Point {
         long x;
         long y;
