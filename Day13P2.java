@@ -18,7 +18,7 @@ public class Day13P2 implements AOCInterface {
             long[] P = AOCInterface.readLineAsLongs(line);
             P[0] += 10000000000000l;
             P[1] += 10000000000000l;
-            line = br.readLine();
+            br.readLine();
             
             long a = A[0];
             long b = B[0];

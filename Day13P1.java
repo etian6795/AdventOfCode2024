@@ -1,5 +1,4 @@
 import java.io.*;
-import java.util.*;
 
 public class Day13P1 implements AOCInterface {
     public static BufferedReader br;
@@ -8,7 +7,6 @@ public class Day13P1 implements AOCInterface {
 
     public static void main(String[] args) throws IOException {
         br = new BufferedReader(new FileReader(file));
-        ArrayList<Integer> qwerty;
 
         String line;
         long ans = 0;
@@ -18,7 +16,7 @@ public class Day13P1 implements AOCInterface {
             long[] B = AOCInterface.readLineAsLongs(line);
             line = br.readLine();
             long[] P = AOCInterface.readLineAsLongs(line);
-            line = br.readLine();
+            br.readLine();
 
             long temp = Long.MAX_VALUE;
             for(int i = 0; i <= 100; i++) {
