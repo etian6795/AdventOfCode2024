@@ -20,6 +20,22 @@ public interface AOCInterface {
         return res;
     }
 
+    public static int[] readLineAsInts(String s) {
+        ArrayList<Integer> arr = new ArrayList<>();
+        
+        Pattern pattern = Pattern.compile("-?\\d+");
+        Matcher matcher = pattern.matcher(s);
+        while (matcher.find()) {
+            arr.add(Integer.valueOf(matcher.group()));
+        }
+
+        int[] res = new int[arr.size()];
+        for(int i = 0; i < res.length; i++) {
+            res[i] = arr.get(i);
+        }
+        return res;
+    }
+
     public static char[][] readInputAsGrid(String file) throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(file));
         ArrayList<char[]> arr = new ArrayList<>();
