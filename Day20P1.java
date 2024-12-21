@@ -59,7 +59,7 @@ public class Day20P1 implements AOCInterface {
         int[] dir = new int[]{0, 1, 0, -1, 0};
         boolean[][] seen = new boolean[m][n];
         q.add(new int[]{sr, sc});
-        seen[0][0] = true;
+        seen[sr][sc] = true;
 
         while(!q.isEmpty()) {
             int size = q.size();
