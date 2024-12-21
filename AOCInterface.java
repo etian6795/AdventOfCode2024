@@ -95,4 +95,33 @@ public interface AOCInterface {
             return x+" "+y;
         }
     }
+
+    public static int bfs(char[][] grid, int m, int n, int sr, int sc, int er, int ec, String good, int[][] dirs) {
+        int d = 0;
+        Queue<int[]> q = new LinkedList<>();
+        boolean[][] seen = new boolean[m][n];
+        q.add(new int[]{sr, sc});
+        seen[sr][sc] = true;
+
+        while(!q.isEmpty()) {
+            int size = q.size();
+            while(size-->0) {
+                int[] curr = q.remove();
+                if(curr[0] == er && curr[1] == ec) {
+                    return d;
+                }
+                for(int[] dir : dirs) {
+                    int nr = curr[0] + dir[0];
+                    int nc = curr[1] + dir[1];
+                    if(nr >= 0 && nr < m && nc >= 0 && nc < n && !seen[nr][nc] && good.contains(grid[nr][nc]+"")) {
+                        q.add(new int[]{nr, nc});
+                        seen[nr][nc] = true;
+                    }
+                }
+            }
+            d++;
+        }
+
+        return -1;
+    }
 }
