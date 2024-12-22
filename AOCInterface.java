@@ -96,6 +96,85 @@ public interface AOCInterface {
         }
     }
 
+    public static class Trio {
+        long a;
+        long b;
+        long c;
+
+        public Trio(long a, long b, long c) {
+            this.a = a;
+            this.b = b;
+            this.c = c;
+        }
+
+        @Override
+        public int hashCode() {
+            int hash = 7;
+            hash = 31 * hash + Long.hashCode(a);
+            hash = 31 * hash + Long.hashCode(b);
+            hash = 31 * hash + Long.hashCode(c);
+            return hash;
+        }
+
+        @Override
+        public boolean equals(Object other) {
+            if(this == other) {
+                return true;
+            }
+            if(other == null || getClass() != other.getClass()) {
+                return false;
+            }
+            Quad o = (Quad) other;
+            return o.a == a && o.b == b && o.c == c; 
+        }
+
+        @Override
+        public String toString() {
+            return a+" "+b+" "+c;
+        }
+    }
+
+    public static class Quad {
+        long a;
+        long b;
+        long c;
+        long d;
+
+        public Quad(long a, long b, long c, long d) {
+            this.a = a;
+            this.b = b;
+            this.c = c;
+            this.d = d;
+        }
+
+        @Override
+        public int hashCode() {
+            int hash = 7;
+            hash = 31 * hash + Long.hashCode(a);
+            hash = 31 * hash + Long.hashCode(b);
+            hash = 31 * hash + Long.hashCode(c);
+            hash = 31 * hash + Long.hashCode(d);
+            return hash;
+        }
+
+        @Override
+        public boolean equals(Object other) {
+            if(this == other) {
+                return true;
+            }
+            if(other == null || getClass() != other.getClass()) {
+                return false;
+            }
+            Quad o = (Quad) other;
+            return o.a == a && o.b == b && o.c == c && o.d == d; 
+        }
+
+        @Override
+        public String toString() {
+            return a+" "+b+" "+c+" "+d;
+        }
+    }
+
     public static int bfs(char[][] grid, int m, int n, int sr, int sc, int er, int ec, String good, int[][] dirs) {
         int d = 0;
         Queue<int[]> q = new LinkedList<>();
